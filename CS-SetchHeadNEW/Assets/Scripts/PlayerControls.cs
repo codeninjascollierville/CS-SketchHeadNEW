@@ -43,43 +43,24 @@ public class PlayerControls : MonoBehaviour
 
             this.GetComponent<SpriteRenderer>().flipX = true;
         }
-
-
     }
-}
-
-
-
-
-
-
-
 void FixedUpdate()
 {
-
-
- Vector2 velocity = rb.Velocity;
- 
-
-
+Vector2 velocity = rb.velocity;
 velocity.x = movement;
-
 rb.velocity = velocity;
-
-
-
 }
 
 
-
-
-
-private void OnCollisionEnter2D(Collision2D Collision2D collision)
-{
-
-    
+private void OnCollisionEnter2D(Collision2D collision)
+{   
     rb.velocity = new Vector3(rb.velocity.x, downSpeed, 0);
 }
+    
+}
+
+
+
 
 
 
