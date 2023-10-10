@@ -5,6 +5,11 @@ using UnityEngine.UI;
 
 public class PlayerControls : MonoBehaviour
 {
+    [Header("Score Text")]
+    public Text scoreText;
+    public float topScore = 0.0f;
+    
+
     [Header("Rigidbody")]
     public Rigidbody2D rb;
     [Header("Default Down Speed")]
@@ -43,6 +48,15 @@ public class PlayerControls : MonoBehaviour
 
             this.GetComponent<SpriteRenderer>().flipX = true;
         }
+
+
+        if (rb.velocity.y > 0 && transform.position.y > topScore)
+        {
+
+            topScore = transform.position.y;
+
+        }
+        scoreText.text = "Score: " + Mathf.Round(topScore).ToString();
     }
 void FixedUpdate()
 {
